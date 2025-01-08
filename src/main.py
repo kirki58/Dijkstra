@@ -1,12 +1,22 @@
 import graph as g
 
-graphHandler = g.GraphHandler("graph1")
+# Create a graph handler with specified graph in graph.json
+graph_handler = g.GraphHandler("graph1")
 
-distances, previous_nodes = graphHandler.dijkstra("A")
+# Draw plain graph
+# graph_handler.draw_graph()
 
-shortest_path = graphHandler.reconstruct_shortest_path(previous_nodes, "F")
-print(shortest_path)
+# get the shortest distances and previous nodes from the specified start node
+distances, previous_nodes = graph_handler.dijkstra("A")
 
-graphHandler.draw_shortest_path(shortest_path)
+# reconstruct the shortest path from start to end
+# shortest_path = graph_handler.reconstruct_shortest_path(previous_nodes, "F")
 
+# draw shortest path
+# graph_handler.draw_shortest_path(shortest_path)
 
+# get dijkstra table
+# table = graph_handler.get_dijkstra_table(distances, previous_nodes)
+
+# draw dijkstra table
+# graph_handler.draw_dijkstra_table(distances, previous_nodes)
