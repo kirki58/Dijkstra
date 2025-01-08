@@ -27,8 +27,8 @@ class GraphHandler:
             for edge in self.edges:
                 self.graph.add_edge(edge[0], edge[1], weight=edge[2]),
 
-            # positions for all nodes "seed" is used to make sure the layout is the same every time the graph is drawn "7" doesnt have a special meaning its just a random number
-            self.pos = nx.spring_layout(self.graph, seed=7)
+            # positions for all nodes "seed" is used to make sure the layout is the same every time the graph is drawn "1" doesnt have a special meaning its just a random number
+            self.pos = nx.spring_layout(self.graph, seed=1)
 
 
     def draw_graph(self, node_size = 700, edge_width = 6, label_font_size = 20):
@@ -134,9 +134,11 @@ class GraphHandler:
         node_colors = []
         for node in self.graph.nodes:
             if node == start_node:
-                node_colors.append("green")
+                node_colors.append("yellow")
             elif node == end_node:
                 node_colors.append("red")
+            elif node in shortest_path:
+                node_colors.append("green")
             else:
                 node_colors.append("blue")
         
@@ -144,7 +146,8 @@ class GraphHandler:
 
         edge_colors = []
         for edge in self.edges:
-            if edge[0] in shortest_path and edge[1] in shortest_path:
+            #zip(shortest_path, shortest_path[1:]) creates a list of tuples of adjacent nodes in the shortest path like [('A', 'B'), ('B', 'D'), ('D', 'F')] from ['A', 'B', 'D', 'F']
+            if (edge[0], edge[1]) in zip(shortest_path, shortest_path[1:]): # If edge[0] and edge[1] are adjacent in shortest_path
                 edge_colors.append("red")
             else:
                 edge_colors.append("black")
