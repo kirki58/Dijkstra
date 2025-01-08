@@ -21,7 +21,7 @@ python src/main.py # Run the application
 All test case graphs are in `graphs.json` Add your own graph if you desire, otherwise you can use one of the 5 default graphs by navigating to `main.py` and changing the parameter `graph1`
 
 ```python
-    graph_handler = g.GraphHandler("your-json-graph-name-here")
+graph_handler = g.GraphHandler("your-json-graph-name-here")
 ```
 
 Then uncomment the related operations you want to perform in `main.py`. Note that some of the functions need to be executed subsequently in order for them to work.
@@ -30,26 +30,26 @@ Then uncomment the related operations you want to perform in `main.py`. Note tha
 `main.py`:
 
 ```python
-    import graph as g
+import graph as g
 
-    # Create a graph handler with specified graph in graph.json
-    graph_handler = g.GraphHandler("graph1")
+# Create a graph handler with specified graph in graph.json
+graph_handler = g.GraphHandler("graph1")
 
-    # Draw plain graph
-    # graph_handler.draw_graph()
+# Draw plain graph
+# graph_handler.draw_graph()
 
-    # get the shortest distances and previous nodes from the specified start node
-    distances, previous_nodes = graph_handler.dijkstra("A")
+# get the shortest distances and previous nodes from the specified start node
+distances, previous_nodes = graph_handler.dijkstra("A")
 
-    # reconstruct the shortest path from start to end
-    shortest_path = graph_handler.reconstruct_shortest_path(previous_nodes, "F")
+# reconstruct the shortest path from start to end
+shortest_path = graph_handler.reconstruct_shortest_path(previous_nodes, "F")
 
-    # draw shortest path
-    graph_handler.draw_shortest_path(shortest_path)
+# draw shortest path
+graph_handler.draw_shortest_path(shortest_path)
 
-    # get dijkstra table
-    # table = graph_handler.get_dijkstra_table(distances, previous_nodes)
+# get dijkstra table
+# table = graph_handler.get_dijkstra_table(distances, previous_nodes)
 
-    # draw dijkstra table
-    # graph_handler.draw_dijkstra_table(distances, previous_nodes)
+# draw dijkstra table
+# graph_handler.draw_dijkstra_table(distances, previous_nodes)
 ```
