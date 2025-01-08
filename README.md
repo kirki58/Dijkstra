@@ -26,7 +26,7 @@ graph_handler = g.GraphHandler("your-json-graph-name-here")
 
 Then uncomment the related operations you want to perform in `main.py`. Note that some of the functions need to be executed subsequently in order for them to work.
 
-** Example: Draw the shortest path between node "A" and "F" in graph1: **
+**Example: Draw the shortest path between node "A" and "F" in graph1:**
 `main.py`:
 
 ```python
